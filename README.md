@@ -115,7 +115,7 @@ Meter el dibujo de los shapes
 
 For shapes that have a border (like 21), you can colour the inside and outside separately. Use the stroke aesthetic to modify the width of the border
 
-<img src="img/points_symbols.png" width="450" height="450" />
+<img src="img/points-symbols.png" width="450" height="450" />
 
 ```r
 ggplot(mtcars, aes(wt, mpg)) +
