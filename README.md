@@ -4,15 +4,17 @@
 
 ### Cargamos la libreria
 
-EXPLICACION
+Lo primero que tenemos que hacer es cargar `ggplot2`, que es la librería que vamos a utilizar para este taller.
 
 ```r
 library(ggplot2)
 ```
 
-### Pintamos unos puntos en un circulo de radio 1
+### Pintamos unos puntos en un círculo de radio 1
 
-EXPLICACION
+Vamos a calentar pintando puntos en un círculo de radio 1. Para ello elegimos una secuencia de ángulos y medimos su seno y su coseno, que formarán las coordendas `x` e `y` de dichos puntos.
+
+Utilizamos `geom_point` para representarlos y `coord_equal` para que los ejes no se distorsionen.
 
 ```r
 t <- seq(0, 2*pi, length.out = 50)
@@ -30,7 +32,7 @@ ggplot(df, aes(x, y)) +
 
 ### Introducimos el Golden Angle
 
-EXPLICACION
+Como hemos visto, el ángulo áureo vale `pi * (3 - sqrt(5))`. Vamos a separar los putos con ese ángulo. También vamos a hacer que los puntos se vayan alejando del origen de forma que cada uno estará a una distancia de `+1` del anterior. Añadimos unas etiquetas con el orden en que se generan para diefernciarlos y comprobar esto visualmente.
 
 ```r
 points <- 10 # No. de puntos
@@ -48,9 +50,9 @@ ggplot(df, aes(x*t, y*t)) +
 ```
 <img src="img/plot2.png" width="450" height="450" />
 
-### Pintamos mas puntos y quitamos los ejes
+### El girasol
 
-EXPLICACION
+Ahora pintamos más puntos y quitamos ejes, *grids* y *background* para que se vean sólo los puntos. La imagen resultante recuerda a un girasol.
 
 ```r
 points <- 200 # No. de puntos
@@ -72,7 +74,7 @@ ggplot(df, aes(x*t, y*t)) +
 
 <img src="img/plot3.png" width="450" height="450" />
 
-### Cambiamos los colores y el tama�o de los puntos
+### Cambiamos los colores y el tamaño de los puntos
 
 EXPLICACION
 
@@ -88,7 +90,7 @@ ggplot(df, aes(x*t, y*t)) +
 ```
 <img src="img/plot4.png" width="450" height="450" />
 
-### El diente de le�n
+### El diente de león
 
 EXPLICACION
 
@@ -112,6 +114,8 @@ ggplot(df, aes(x*t, y*t)) +
 Meter el dibujo de los shapes
 
 For shapes that have a border (like 21), you can colour the inside and outside separately. Use the stroke aesthetic to modify the width of the border
+
+<img src="img/points_symbols.png" width="450" height="450" />
 
 ```r
 ggplot(mtcars, aes(wt, mpg)) +
@@ -148,7 +152,7 @@ ggplot(df, aes(x*t, y*t)) +
 
 <img src="img/plot6.png" width="450" height="450" />
 
-### Modificamos el angulo
+### Modificamos el ángulo
 
 EXPLICACION
 
