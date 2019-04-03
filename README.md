@@ -76,7 +76,7 @@ ggplot(df, aes(x*t, y*t)) +
 
 ### Cambiamos los colores y el tamaño de los puntos
 
-EXPLICACION
+Se puede cambiar el tamaño de los puntos con `size`, el color con `color` y la transparencia con `alpha`. Los colores en R tienen nombre. La lista completa de colores está [aquí](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
 
 ```r
 ggplot(df, aes(x*t, y*t)) +
@@ -92,7 +92,11 @@ ggplot(df, aes(x*t, y*t)) +
 
 ### El diente de león
 
-EXPLICACION
+También se puede cambiar la forma de los puntos con `shape`. Estas son las formas que se pueden utilizar:
+
+<img src="img/points-symbols.png" width="450" height="450" />
+
+El tamaño de los puntos se puede asociar a alguna de las columnas de nuestra tabla de datos. Esto hace que el tamaño sea variable, y se hace con `aes(size=...)`
 
 ```r
 ggplot(df, aes(x*t, y*t)) +
@@ -109,13 +113,9 @@ ggplot(df, aes(x*t, y*t)) +
 <img src="img/plot5.png" width="450" height="450" />
 
 
-### Usar un shape raruno
+### Jugando con las formas
 
-Meter el dibujo de los shapes
-
-For shapes that have a border (like 21), you can colour the inside and outside separately. Use the stroke aesthetic to modify the width of the border
-
-<img src="img/points-symbols.png" width="450" height="450" />
+Algunas formas (como la 21) tienen borde. En este caso, se puede colorear el interior con `fill` y el borde con `colour` separadamente. También se puede modificar el grueso del borde con `stroke`.
 
 ```r
 ggplot(mtcars, aes(wt, mpg)) +
@@ -136,7 +136,7 @@ ggplot(df, aes(x*t, y*t)) +
 
 ### Cambiamos colores
 
-EXPLICACION
+Para cambiar el color del fondo se utiliza `panel.background = element_rect(fill= ...)`.
 
 ```r
 ggplot(df, aes(x*t, y*t)) +
@@ -154,7 +154,7 @@ ggplot(df, aes(x*t, y*t)) +
 
 ### Modificamos el ángulo
 
-EXPLICACION
+También podemos jugar con el ángulo de los puntos.
 
 ```r
 angle <- 2
@@ -180,6 +180,8 @@ ggplot(df, aes(x*t, y*t)) +
 <img src="img/plot7.png" width="450" height="450" />
 
 ### Cambiando todo
+
+Teniendo en cuenta todas estas cosas, se pueden obtener dibujos muy artísticos como este:
 
 ```r
 library(ggplot2)
@@ -208,10 +210,16 @@ ggplot(df, aes(x*t, y*t)) +
 
 ### Reglas del concurso
 
-xxxxxxxxxxxx
+Con todo lo que hemos visto, tienes tiempo ahora para crear tu propio dibujo. Recuerda que puedes cambiar todas estas cosas:
 
-Referencias
++ Número de puntos (`points`)
++ Ángulo entre ellos (`angle`)
++ Tamaño (`size`), forma (`shape`), transparencia (`alpha`) y color (`color`) de los puntos
++ Recuerda que hay formas con borde en las que puedes modificar el relleno (`fill`), el color del borde (`colour`) y su grueso (`stroke`).
++ El color del fondo con `panel.background = element_rect(fill= ... )`
 
-+ Colores: http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf
+Algunos consejos:
+
++ La lista de colores es esta: http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf
 + Puedes guardar los dibujos lanzando `ggsave("elige_un_nombre.png", width = 3, height = 3, dpi = 600)`
 
