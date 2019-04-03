@@ -52,7 +52,9 @@ ggplot(df, aes(x*t, y*t)) +
 
 ### El girasol
 
-Ahora pintamos más puntos y quitamos ejes, *grids* y *background* para que se vean sólo los puntos. La imagen resultante recuerda a un girasol.
+Ahora pintamos más puntos y quitamos ejes, *grids* y *background* para que se vean sólo los puntos. La imagen resultante recuerda a un girasol. 
+
+En botánica, phyllotaxis o phyllotaxy es la disposición de las hojas en el tallo de una planta. El nombre proviene de *phýllon* (hoja) y de *táxis* (disposición) en griego antiguo. Las espirales filotácticas forman una clase distintiva de patrones en la naturaleza. El término fue acuñado por Charles Bonnet para describir la disposición de las hojas en una planta.
 
 ```r
 points <- 200 # No. de puntos
@@ -118,21 +120,26 @@ ggplot(df, aes(x*t, y*t)) +
 Algunas formas (como la 21) tienen borde. En este caso, se puede colorear el interior con `fill` y el borde con `colour` separadamente. También se puede modificar el grueso del borde con `stroke`.
 
 ```r
-ggplot(mtcars, aes(wt, mpg)) +
-geom_point(shape = 21, colour = "black", fill = "white", size = 5, stroke = 5)
-```
+points <- 50 # No. de puntos
+angle <- pi * (3 - sqrt(5)) # golden angle
+t <- (1:points)
+x <- sin(t * angle)
+y <- cos(t * angle)
+df <- data.frame(t, x, y)
 
-```r
 ggplot(df, aes(x*t, y*t)) +
-  geom_point(size=8, alpha=0.5, color="darkgreen") +
+  geom_point(shape = 21, colour = "black", 
+             fill = "yellow", size = 5, stroke = 5) +
   coord_equal() + 
-  theme(panel.background = element_rect(fill="white"),
+  theme(legend.position="none",
+        panel.background = element_rect(fill="white"),
         panel.grid=element_blank(),
         axis.ticks=element_blank(),
         axis.title=element_blank(),
         axis.text=element_blank())
 ```
 
+<img src="img/plotx.png" width="450" height="450" />
 
 ### Cambiamos colores
 
@@ -215,11 +222,12 @@ Con todo lo que hemos visto, tienes tiempo ahora para crear tu propio dibujo. Re
 + Número de puntos (`points`)
 + Ángulo entre ellos (`angle`)
 + Tamaño (`size`), forma (`shape`), transparencia (`alpha`) y color (`color`) de los puntos
-+ Recuerda que hay formas con borde en las que puedes modificar el relleno (`fill`), el color del borde (`colour`) y su grueso (`stroke`).
+  + Recuerda que hay formas con borde en las que puedes modificar el relleno (`fill`), el color del borde (`colour`) y su grueso (`stroke`).
 + El color del fondo con `panel.background = element_rect(fill= ... )`
 
 Algunos consejos:
 
 + La lista de colores es esta: http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf
++ La lista de formas la tienes en un cuadro de este documento
 + Puedes guardar los dibujos lanzando `ggsave("elige_un_nombre.png", width = 3, height = 3, dpi = 600)`
 
