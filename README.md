@@ -146,6 +146,14 @@ ggplot(df, aes(x*t, y*t)) +
 Para cambiar el color del fondo se utiliza `panel.background = element_rect(fill= ...)`.
 
 ```r
+points <- 500 # No. de puntos
+angle <- pi * (3 - sqrt(5)) # golden angle
+t <- (1:points)
+x <- sin(t * angle)
+y <- cos(t * angle)
+df <- data.frame(t, x, y)
+
+
 ggplot(df, aes(x*t, y*t)) +
   geom_point(aes(size=t), alpha=0.5, shape=17, color="yellow")+
   coord_equal() +
@@ -155,6 +163,7 @@ ggplot(df, aes(x*t, y*t)) +
         axis.ticks=element_blank(),
         axis.title=element_blank(),
         axis.text=element_blank())
+
 ```
 
 <img src="img/plot6.png" width="450" height="450" />
