@@ -34,6 +34,9 @@ ggplot(df, aes(x, y)) +
 
 Como hemos visto, el ángulo áureo vale `pi * (3 - sqrt(5))`. Vamos a separar los putos con ese ángulo. También vamos a hacer que los puntos se vayan alejando del origen de forma que cada uno estará a una distancia de `+1` del anterior. Añadimos unas etiquetas con el orden en que se generan para diefernciarlos y comprobar esto visualmente.
 
+
+$latex x = x+1$
+
 ```r
 points <- 10 # No. de puntos
 angle <- pi * (3 - sqrt(5)) # golden angle
