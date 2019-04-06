@@ -233,6 +233,7 @@ Con todo lo que hemos visto, tienes tiempo ahora para crear tu propio dibujo. Re
 + Tamaño (`size`), forma (`shape`), transparencia (`alpha`) y color (`color`) de los puntos
   + Recuerda que hay formas con borde en las que puedes modificar el relleno (`fill`), el color del borde (`colour`) y su grueso (`stroke`).
 + El color del fondo con `panel.background = element_rect(fill= ... )`
++ Todos los puntos tienen que tener el mismo color
 
 Algunos consejos:
 
